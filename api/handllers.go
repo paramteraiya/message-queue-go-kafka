@@ -53,7 +53,7 @@ func CreateProductHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Println("productID", productID)
 	producer.SendMessage(productID)
-
+	
 	// Return response
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(product)

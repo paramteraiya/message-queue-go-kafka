@@ -18,18 +18,15 @@ import (
 )
 
 func StartConsumer() {
-	topic := "products"
-	partition := 0
-	offset := kafka.LastOffset
 
 	r := kafka.NewReader(kafka.ReaderConfig{
-		Brokers:   []string{"localhost:9091"},
-		Topic:     topic,
-		Partition: partition,
+		Brokers:   []string{os.Getenv("BROKER_ADDRESS")},
+		Topic:     os.Getenv("TOPIC_NAME"),
+		Partition: 0,
 		MinBytes:  10e3,
 		MaxBytes:  10e6,
 		GroupID:   "my-group",
-		StartOffset: offset,
+		StartOffset: kafka.LastOffset,
 	})
 
 	signals := make(chan os.Signal, 1)

@@ -5,13 +5,14 @@ import (
 	"context"
 	"log"
 	"github.com/segmentio/kafka-go"
+	"os"
 )
 
 func SendMessage(productID int) {
-	topic := "products"
+	topic := os.Getenv("TOPIC_NAME")
 	partition := 0
 
-	conn, err := kafka.DialLeader(context.Background(), "tcp", "localhost:9091", topic, partition)
+	conn, err := kafka.DialLeader(context.Background(), "tcp", os.Getenv("BROKER_ADDRESS"), topic, partition)
 	if err != nil {
 		log.Fatal("Failed to connect to broker:", err)
 	}

@@ -21,7 +21,7 @@ func CreateProduct (product *Product) error {
 
 	imagesArray := pq.Array(product.Images)
 
-	query := "INSERT INTO products (product_name, product_desciption, product_images, product_price) VALUES ($1, $2, $3, $4)"
+	query := "INSERT INTO products (product_name, product_description, product_images, product_price) VALUES ($1, $2, $3, $4)"
     _ = db.QueryRow(query, product.ProductName, product.ProductDesc, imagesArray, product.Price)
 
 

@@ -1,6 +1,6 @@
 module github.com/message-queue
 
-go 1.23
+go 1.21.0
 
 require (
 	github.com/confluentinc/confluent-kafka-go v1.9.2 // indirect
@@ -10,6 +10,7 @@ require (
 	github.com/githubnemo/CompileDaemon v1.4.0 // indirect
 	github.com/google/uuid v1.3.1 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
+	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/lib/pq v1.10.9 // indirect
 	github.com/mattn/go-colorable v0.1.4 // indirect

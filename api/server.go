@@ -2,7 +2,7 @@ package api
 
 import (
 	"net/http"
-
+	"os"
 	"github.com/gorilla/mux"
 )
 
@@ -11,5 +11,5 @@ func StartServer() {
 	router.HandleFunc("/api/product", CreateProductHandler).Methods("POST")
 
 	http.Handle("/", router)
-	http.ListenAndServe(":3000", nil)
+	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 }
