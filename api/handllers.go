@@ -30,7 +30,6 @@ func CreateProductHandler(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 	fmt.Println(data)
 	
-	// Create Product object
 	product := models.Product{
 		// UserID:      userID,
 		ProductName: data.ProductName,
@@ -39,13 +38,11 @@ func CreateProductHandler(w http.ResponseWriter, r *http.Request) {
 		Price:       data.ProductPrice,
 	}
 
-	// Store product in the database
 	if err := models.CreateProduct(&product); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	// Scan the created product ID from the database
 	var productID int
 	if err := db.QueryRow("SELECT product_id FROM products ORDER BY product_id DESC LIMIT 1").Scan(&productID); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -54,7 +51,6 @@ func CreateProductHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("productID", productID)
 	producer.SendMessage(productID)
 	
-	// Return response
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(product)
 
