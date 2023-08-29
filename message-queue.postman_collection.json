@@ -1,0 +1,23 @@
+{
+	"info": {
+		"_postman_id": "079417a1-1453-49f9-84e7-7d753e6ee229",
+		"name": "message-queue",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "16145007"
+	},
+	"item": [
+		{
+			"name": "test post request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":1,\r\n    \"product_name\":\"test1\",\r\n    \"product_description\":\"test1\",\r\n    \"product_images\":[\"https://www.freecodecamp.org/news/content/images/2021/10/golang.png\", \"https://miro.medium.com/v2/resize:fit:691/1*3wmzAGCy0z06-QMaJZD7Ag.png\"],\r\n    \"product_price\":50\r\n}"
+				},
+				"url": "http://localhost:3000/api/product"
+			},
+			"response": []
+		}
+	]
+}
