@@ -19,3 +19,7 @@
 
 # Go workspace file
 go.work
+compressed_images
+postgres-data
+postgres-data1
+data/
